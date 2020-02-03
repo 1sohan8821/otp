@@ -18,8 +18,9 @@
 package hotp
 
 import (
-	"github.com/pquerna/otp"
 	"io"
+
+	"github.com/pquerna/otp"
 
 	"crypto/hmac"
 	"crypto/rand"
@@ -32,7 +33,7 @@ import (
 	"strings"
 )
 
-const debug = false
+const debug = true
 
 // Validate a HOTP passcode given a counter and secret.
 // This is a shortcut for ValidateCustom, with parameters that
