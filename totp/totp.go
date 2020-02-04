@@ -18,9 +18,10 @@
 package totp
 
 import (
-	"github.com/pquerna/otp"
-	"github.com/pquerna/otp/hotp"
 	"io"
+
+	"github.com/1sohan8821/otp"
+	"github.com/1sohan8821/otp/hotp"
 
 	"crypto/rand"
 	"encoding/base32"

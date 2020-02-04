@@ -20,7 +20,7 @@ package hotp
 import (
 	"io"
 
-	"github.com/pquerna/otp"
+	"github.com/1sohan8821/otp"
 
 	"crypto/hmac"
 	"crypto/rand"
