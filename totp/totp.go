@@ -18,6 +18,7 @@
 package totp
 
 import (
+	"fmt"
 	"io"
 
 	"github.com/1sohan8821/otp"
@@ -30,6 +31,8 @@ import (
 	"strconv"
 	"time"
 )
+
+const debug = true
 
 // Validate a TOTP using the current time.
 // A shortcut for ValidateCustom, Validate uses a configuration
@@ -81,6 +84,11 @@ type ValidateOpts struct {
 func GenerateCodeCustom(secret string, t time.Time, opts ValidateOpts) (passcode string, err error) {
 	if opts.Period == 0 {
 		opts.Period = 30
+	}
+
+	if debug == true {
+		fmt.Printf("UNIX issue date: %v \n", t.Unix())
+		fmt.Printf("OTP Date: %v \n", t.String())
 	}
 	counter := uint64(math.Floor(float64(t.Unix()) / float64(opts.Period)))
 	passcode, err = hotp.GenerateCodeCustom(secret, counter, hotp.ValidateOpts{
